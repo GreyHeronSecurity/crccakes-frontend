@@ -850,7 +850,7 @@ checkoutBtn.addEventListener("click", async () => {
   checkoutBtn.disabled = true;
   checkoutBtn.textContent = "Redirecting…";
 
-  const API_BASE = "https://YOUR-SERVICE.up.railway.app"; // <-- paste your Railway public URL here
+  const API_BASE = "https://crcakes-backend-production.up.railway.app";
 
   try {
     const res = await fetch(`${API_BASE}/create-checkout-session`, {
@@ -916,4 +916,5 @@ window.addEventListener("DOMContentLoaded", () => {
   renderCart();
   updateCheckoutState();
 });
+
 
