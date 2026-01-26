@@ -850,8 +850,10 @@ checkoutBtn.addEventListener("click", async () => {
   checkoutBtn.disabled = true;
   checkoutBtn.textContent = "Redirecting…";
 
+  const API_BASE = "https://YOUR-SERVICE.up.railway.app"; // <-- paste your Railway public URL here
+
   try {
-    const res = await fetch("http://192.168.0.99:5000/create-checkout-session", {
+    const res = await fetch(`${API_BASE}/create-checkout-session`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -868,6 +870,7 @@ checkoutBtn.addEventListener("click", async () => {
         delivery_date,
       }),
     });
+
 
     const text = await res.text();
     let data;
@@ -913,3 +916,4 @@ window.addEventListener("DOMContentLoaded", () => {
   renderCart();
   updateCheckoutState();
 });
+
