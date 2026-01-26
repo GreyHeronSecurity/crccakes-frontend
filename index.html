@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#756f6a" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+
+        script-src
+          'self'
+          https://js.stripe.com
+          https://cdn.jsdelivr.net;
+
+        style-src
+          'self'
+          'unsafe-inline'
+          https://fonts.googleapis.com;
+
+        font-src
+          https://fonts.gstatic.com;
+
+        img-src
+          'self'
+          https://gntqahajeerodlronvpp.supabase.co
+          data:;
+
+        connect-src
+          'self'
+          https://api.stripe.com
+          https://*.supabase.co
+          https://api.postcodes.io
+          http://192.168.0.99:5000;
+
+        frame-src
+          https://js.stripe.com;
+
+        frame-ancestors 'none';
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+      "
+    />
+    <meta name="referrer" content="no-referrer">
+    <meta
+      http-equiv="Permissions-Policy"
+      content="
+        camera=(),
+        microphone=(),
+        geolocation=(),
+        payment=(self),
+        fullscreen=(self)
+      "
+    >
+
+
+
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Forum&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Tangerine:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Freshly Baked Cakes and Treats | C.R. Cakes and Bakes</title>
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="header-content">
+        <!-- HAMBURGER (mobile only) -->
+        <button class="hamburger" id="menuToggle">☰</button>
+
+        <!-- LOGO -->
+        <a href="index.html" class="logo">
+          <img src="img/logo.jpg" alt="Logo" />
+        </a>
+
+        <!-- MOBILE MENU -->
+        <div class="menu-panel" id="menuPanel">
+          <button class="header-btn" data-popup="popup-about">| About Us</button>
+          <button class="header-btn" data-popup="popup-price">
+            | Price List
+          </button>
+          <button
+            class="header-btn contact-mobile-hide"
+            data-popup="popup-contact"
+          >
+            | Contact Us
+          </button>
+          <a
+            href="https://instagram.com/c.r.cakesandbakes"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button class="header-btn">| Instagram</button>
+          </a>
+        </div>
+
+        <!-- DESKTOP BUTTONS — ALL TOGETHER -->
+        <div class="desktop-buttons desktop-only">
+          <button class="header-btn" data-popup="popup-about">| About Us</button>
+          <button class="header-btn" data-popup="popup-price">
+            | Price List
+          </button>
+          <button
+            class="header-btn contact-mobile-hide"
+            data-popup="popup-contact"
+          >
+            | Contact Us
+          </button>
+          <a
+            href="https://instagram.com/c.r.cakesandbakes"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button class="header-btn">| Instagram</button>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <nav id="navbar">
+      <button data-category="cookiePies">Cookie Pies</button>
+      <button data-category="cheesecakes">Cheesecakes</button>
+      <button data-category="cakes" class="active">Cakes</button>
+      <button data-category="sweettreats">Sweet Treats</button>
+      <button data-category="traybakes">Traybakes</button>
+    </nav>
+
+    <article>
+      <div class="imageBox">
+        <img src="img/new_images/cake.png" alt="C.R. Cakes & Bakes" />
+      </div>
+      <div class="infoBox"></div>
+    </article>
+
+    <section id="product-section">
+      <div class="grid" id="product-grid"></div>
+    </section>
+
+    <button class="allergen-btn" id="openPopup" data-popup="popup">
+      Allergen Matrix
+    </button>
+
+    <!-- CART UI -->
+    <button id="cart-button" title="Open cart">
+      <span id="cart-icon">🛒</span>
+      <span id="cart-count">0</span>
+    </button>
+
+    <div id="cart-modal" aria-hidden="true">
+      <div
+        id="cart-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cart-title"
+      >
+        <div class="cart-header-row">
+          <h3 id="cart-title" class="cart-title">Your Basket</h3>
+          <button id="close-cart" aria-label="Close">✕</button>
+        </div>
+
+        <div id="cart-items"></div>
+
+        <div id="cart-subtotal" class="cart-subtotal">Subtotal: £0.00</div>
+
+        <div id="cart-delivery-section">
+          <h3 class="cart-delivery-title">Delivery Options</h3>
+
+          <label class="delivery-option">
+            <input
+              type="radio"
+              name="delivery-method"
+              value="collection"
+              checked
+            />
+            Collection
+          </label>
+
+          <label class="delivery-option">
+            <input type="radio" name="delivery-method" value="delivery" />
+            Delivery
+          </label>
+
+          <div id="cart-delivery-address-box" class="is-hidden">
+            <input
+              id="cart-delivery-address"
+              type="search"
+              placeholder="Enter postcode (e.g. NE29 8SX)"
+              autocomplete="postal-code"
+            />
+          </div>
+
+          <div id="delivery-availability"></div>
+
+          <label for="delivery-date" class="delivery-date-label">
+            Choose a date:
+          </label>
+          <input type="date" id="myDate" />
+
+          <div id="cart-delivery-fee">Delivery Fee: £0.00</div>
+          <div id="cart-grand-total">Total: £0.00</div>
+        </div>
+
+        <label class="terms-row">
+          <input type="checkbox" id="termsCheckbox" />
+          <span>I agree to the Terms & Conditions</span>
+        </label>
+
+        <button id="checkout-btn">
+          Checkout Securely With
+          <img
+            src="https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/Stripe.png"
+            alt="Secure online payment supported by Stripe."
+          />
+        </button>
+
+        <button id="clear-cart">Clear</button>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <h2>Contact</h2>
+        <p>
+          If you have any issues concerning your order, returns, or refunds,
+          please contact us at
+          <a href="mailto:youremail@example.com">youremail@example.com</a>. We
+          are happy to assist you promptly.
+        </p>
+
+        <h2>
+          Secure payments handled by
+          <img
+            src="https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/Stripe.png"
+            alt="Secure online payment supported by Stripe."
+          />
+        </h2>
+
+        <p>
+          Your payment is safe with us. We use Stripe, a leading global payments
+          platform, to process all transactions securely. We never see or store
+          your card details, everything is encrypted and protected, from start
+          till finish.
+        </p>
+
+        <span class="author">© C.R. Cakes and Bakes</span>
+      </div>
+    </footer>
+
+    <!-- ALLERGEN POPUP -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="close" id="closePopup">&times;</span>
+        <img
+          src="https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/allergy-matrixV1.png"
+          alt="Allergens Matrix"
+        />
+      </div>
+    </div>
+
+    <!-- ABOUT US POPUP -->
+    <div id="popup-about" class="popup">
+      <div class="popup-content">
+        <span class="close">&times;</span>
+        <h2>About Us</h2>
+        <p class="popup-padded-text">
+          Welcome to C.R Cakes&Bakes!<br /><br />I am a new local small
+          business. I am registered and insured, based in North Shields.<br /><br />I
+          am selling cakes, cheesecakes, traybakes and all sorts of sweet treats
+          for any occasion, from birthdays to a cosy night in there is something
+          for you! My speciality are my Cookie Pies.<br /><br />I love baking
+          all sorts of sweet treats so if there are any requests for anything
+          you don’t see on my page please ask! I have a Level 3 Food Safety and
+          Hygiene qualification and 12+ years in the food industry.<br /><br />Everything
+          is made fresh to order, so please order at least 24-48 hours in
+          advance. I offer Free Collection and Free Local Delivery. <br /><br />Delivery
+          £3.00 or Free Delivery on orders over £35.00
+        </p>
+
+        <h3>PRIVACY NOTICE</h3>
+        <p class="popup-padded-text">
+          We do not store your personal information. All payment and customer
+          details are securely handled by
+          <a href="https://stripe.com/gb" target="_blank" rel="noopener noreferrer"
+            >Stripe</a
+          >. No personal data is collected or stored on this website. Stripe may
+          use cookies for payment security and fraud prevention. For any
+          questions regarding your data, you can contact us at
+          <a href="mailto:youremail@example.com">youremail@example.com</a>.
+        </p>
+
+        <h3>TERMS & CONDITIONS</h3>
+        <p class="popup-padded-text">
+          All orders are processed through Stripe. Returns and refunds will also
+          be handled via Stripe. Orders will be delivered within 24 hours of
+          order processing. Each order processing time may vary; please check
+          each product for specific details. We ask that customers maintain
+          clear communication with us to ensure expectations are met for each
+          order. By placing an order on this website, you agree to these terms.
+        </p>
+
+        <h3>BUSINESS REGISTRATION</h3>
+        <p class="popup-padded-text">
+          We are a registered UK business (Company No. 12345678). You can verify
+          our registration on
+          <a
+            href="https://find-and-update.company-information.service.gov.uk/company/12345678"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Companies House</a
+          >.
+        </p>
+
+        <h3>INSURANCE</h3>
+        <p class="popup-padded-text">
+          We hold valid public liability and product liability insurance issued
+          by [Insurance Provider Name] to protect our customers.
+        </p>
+      </div>
+    </div>
+
+    <!-- PRICE LIST POPUP -->
+    <div id="popup-price" class="popup">
+      <div class="popup-content">
+        <span class="close">&times;</span>
+        <img
+          src="https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/price-list-NOV25.jpg"
+          alt="Price List"
+          class="popup-img"
+        />
+      </div>
+    </div>
+
+    <!-- CONTACT US POPUP -->
+    <div id="popup-contact" class="popup">
+      <div class="popup-content">
+        <span class="close">&times;</span>
+        <div class="contact-container">
+          <h2>Contact Us</h2>
+          <p>
+            If you’d like to place an order or have any questions, feel free to
+            reach out using the details below.
+          </p>
+
+          <div class="contact-item">
+            <span class="contact-label">E-mail:</span>
+            <a class="contact-link" href="mailto:contact@crcakesandbakes.co.uk">
+              contact@crcakesandbakes.co.uk
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Phone:</span>
+            <a class="contact-link" href="tel:07236523492">07236 523492</a>
+          </div>
+
+          <p>We look forward to hearing from you!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Libraries that your JS expects -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+    <!-- Your app JS -->
+    <script src="app.js" defer></script>
+  </body>
+</html>
