@@ -92,7 +92,7 @@ function saveCart() {
 /* ----------------- ARTICLE CONTENT FOR EACH CATEGORY ----------------- */
 const articleContent = {
   cookiePies: {
-    img: "img/new_images/cookie.jpg",
+    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cake.png",
     title: "Cookie Pies",
     text: `
       Cookie pies are one of our most indulgent treats — deep-dish cookies filled with layers 
@@ -104,7 +104,7 @@ const articleContent = {
     `,
   },
   cheesecakes: {
-    img: "img/new_images/cheese.png",
+    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cake.png",
     title: "Cheesecakes",
     text: `
       Our cheesecakes are rich, creamy, and full of flavour — from classic favourites to fun new 
@@ -115,7 +115,7 @@ const articleContent = {
     `,
   },
   cakes: {
-    img: "img/new_images/cake.png",
+    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cake.png",
     title: "C.R. Cakes and Bakes",
     extra: `
       <h1>C.R. Cakes and Bakes</h1>
@@ -127,7 +127,7 @@ const articleContent = {
     `,
   },
   sweettreats: {
-    img: "img/new_images/cupcakes.jpg",
+    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cake.png",
     title: "Sweet Treats",
     text: `
       Sweet Treats include brownies, blondies, cookies, and all the little delights baked with love 
@@ -138,7 +138,7 @@ const articleContent = {
     `,
   },
   traybakes: {
-    img: "img/new_images/jammy.png",
+    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cake.png",
     title: "Traybakes",
     text: `
       Our traybakes are thick, generous slices of deliciousness — from gooey chocolate bakes to fun, 
@@ -912,6 +912,7 @@ window.addEventListener("DOMContentLoaded", () => {
   renderCart();
   updateCheckoutState();
 });
+
 
 
 
