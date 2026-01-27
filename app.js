@@ -1,5 +1,3 @@
-console.log("BIG SCRIPT STARTED");
-
 /* ------------------ tiny UI helpers (CSP-friendly) ------------------ */
 function showFlex(el) {
   if (!el) return;
@@ -189,7 +187,6 @@ const BUCKET = "product-images";
 
 async function loadProducts(category) {
   grid.innerHTML = "<p>Loading products...</p>";
-  console.log("Loading products for category:", category);
 
   try {
     const { data: catData, error: catError } = await supabaseClient
@@ -198,7 +195,6 @@ async function loadProducts(category) {
       .eq("name", category)
       .single();
 
-    console.log("Category query result:", { catData, catError });
 
     if (catError || !catData) {
       grid.innerHTML = "<p>No products found for this category.</p>";
@@ -916,5 +912,6 @@ window.addEventListener("DOMContentLoaded", () => {
   renderCart();
   updateCheckoutState();
 });
+
 
 
