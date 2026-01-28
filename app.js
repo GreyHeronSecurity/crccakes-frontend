@@ -20,7 +20,7 @@ function isHidden(el) {
 const menuToggle = document.getElementById("menuToggle");
 const menuPanel = document.getElementById("menuPanel");
 
-// Ensure default state is hidden (matches your CSS)
+//  default state is hidden
 hideEl(menuPanel);
 
 // Toggle menu on hamburger click
@@ -95,11 +95,11 @@ const articleContent = {
     img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cake.png",
     title: "Cookie Pies",
     text: `
-      Cookie pies are one of our most indulgent treats — deep-dish cookies filled with layers 
+      Cookie pies are one of our most indulgent treats, deep-dish cookies filled with layers 
       of chocolate, spreads, and delicious toppings. As a new baked goods business in Newcastle, 
       each cookie pie is handmade fresh and packed with flavour, making them perfect for birthdays, 
       celebrations, or simply treating yourself. If you’d like a custom flavour or topping, I’m 
-      always happy to take requests — just message me before purchasing so I can make sure your 
+      always happy to take requests, just message me before purchasing so I can make sure your 
       choice is available.
     `,
   },
@@ -107,7 +107,7 @@ const articleContent = {
     img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cake.png",
     title: "Cheesecakes",
     text: `
-      Our cheesecakes are rich, creamy, and full of flavour — from classic favourites to fun new 
+      Our cheesecakes are rich, creamy, and full of flavour, from classic favourites to fun new 
       combinations. Each one is crafted with care right here in Newcastle, using high-quality 
       ingredients to create a smooth, luxurious dessert perfect for any occasion. If you have a 
       special idea in mind or want a personalised flavour, I’m more than happy to create something 
@@ -141,7 +141,7 @@ const articleContent = {
     img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cake.png",
     title: "Traybakes",
     text: `
-      Our traybakes are thick, generous slices of deliciousness — from gooey chocolate bakes to fun, 
+      Our traybakes are thick, generous slices of deliciousness, from gooey chocolate bakes to fun, 
       creative flavours. They’re ideal for parties, office treats, or sharing with friends and family. 
       Made fresh here in Newcastle, every traybake is handcrafted with quality ingredients and plenty 
       of care. If you have a custom flavour in mind or want something special for an event, I’m always 
@@ -547,7 +547,7 @@ function setDeliveryMessage(msg, ok) {
 
   el.textContent = msg;
 
-  // ✅ no inline styles; use classes instead
+
   el.classList.toggle("delivery-ok", !!ok);
   el.classList.toggle("delivery-bad", !ok);
 }
@@ -606,7 +606,7 @@ function initDeliveryControls() {
     const checked = document.querySelector('input[name="delivery-method"]:checked');
     cartDelivery.method = checked ? checked.value : "collection";
 
-    // ✅ class toggle instead of style.display
+    
     addressBox.classList.toggle("is-hidden", cartDelivery.method !== "delivery");
 
     if (cartDelivery.method === "delivery") {
@@ -757,7 +757,7 @@ function renderCart() {
   cartDeliveryFeeEl.textContent = "Delivery Fee: £" + deliveryFee.toFixed(2);
   cartGrandTotalEl.textContent = "Total: £" + (subtotal + deliveryFee).toFixed(2);
 
-  // Bind events (same behavior as before)
+  // Bind events
   document.querySelectorAll(".cart-remove").forEach((btn) => {
     btn.addEventListener("click", () => {
       const i = Number(btn.dataset.idx);
