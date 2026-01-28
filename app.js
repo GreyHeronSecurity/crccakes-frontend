@@ -39,6 +39,8 @@ document.querySelectorAll("#menuPanel button, #menuPanel a").forEach((item) => {
 /* ------------------ Popups ------------------ */
 document.querySelectorAll("[data-popup]").forEach((btn) => {
   btn.addEventListener("click", () => {
+    closeCart();
+
     const popupId = btn.getAttribute("data-popup");
     const popup = document.getElementById(popupId);
     showFlex(popup);
