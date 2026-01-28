@@ -684,6 +684,12 @@ body.modal-open { overflow: hidden !important; }
   margin-left: 1rem;
 }
 
+.terms-link {
+  text-decoration: underline;
+  cursor: pointer;
+  color: inherit;
+}
+
 .popup-padded-text{ padding: 1rem; }
 
 /* CSP-friendly toggles */
