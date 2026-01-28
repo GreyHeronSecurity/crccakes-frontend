@@ -568,7 +568,7 @@ body.modal-open { overflow: hidden !important; }
   border-radius: 10px;
   padding: 18px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  font-family: inherit;
+  font-family: ;
   max-height: 85vh;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
