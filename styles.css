@@ -1,5 +1,5 @@
 * { box-sizing: border-box; }
-html, body { overflow-x: hidden; } /* safety net */
+html, body { overflow-x: hidden; } 
 img { max-width: 100%; height: auto; display: block; }
 
 body {
@@ -71,7 +71,7 @@ header {
   border: none;
   cursor: pointer;
   color: black;
-  display: none;  /* hidden on desktop */
+  display: none;  
   margin-top: -20px;
   margin-left: 20px;
 }
@@ -102,7 +102,7 @@ header {
   gap: 10px;
 }
 
-/* Left & right navs: fix the long white bar issue */
+/* Left & right navs*/
 .top-left {
   display: flex;
   gap: 1rem;
@@ -218,7 +218,7 @@ article.fade-out { opacity: 0; }
   border: black 2px solid;
 }
 
-/* carousel area has a defined size */
+/* carousel */
 .product-carousel{
   position: relative;
   width: 100%;
@@ -234,7 +234,7 @@ article.fade-out { opacity: 0; }
   display: block;
 }
 
-/* (optional) if you have other imgs later, don’t force them to 250px */
+/* product image */
 .product-details img{
   width: auto;
   height: auto;
@@ -535,7 +535,7 @@ footer p { padding: 0rem; }
 }
 
 #cart-button[title="Close cart"] #cart-icon {
-  color: #756f6a; /* brown */
+  color: #756f6a; 
 }
 
 body.modal-open { overflow: hidden !important; }
@@ -650,7 +650,7 @@ body.modal-open { overflow: hidden !important; }
 .cart-delivery-title { margin: 1rem; }
 .delivery-option { display: block; margin: 1.5rem; }
 
-/* Let .is-hidden control visibility instead of hardcoding display:none here */
+
 #cart-delivery-address-box { margin: 1rem; }
 
 #cart-delivery-address,
@@ -693,7 +693,7 @@ body.modal-open { overflow: hidden !important; }
 .delivery-ok { color: #0a7a2f; }
 .delivery-bad { color: #b00020; }
 
-/* Cart render helper classes (replaces inline style=...) */
+/* Cart render helper classes */
 .cart-info { flex: 1; }
 .cart-name { font-weight: 700; }
 .cart-meta { font-size: 13px; color: #444; white-space: pre-line; }
