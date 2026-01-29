@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' https://js.stripe.com https://cdn.jsdelivr.net https://ratings.food.gov.uk; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://gntqahajeerodlronvpp.supabase.co https://ratings.food.gov.uk data:; connect-src 'self' https://api.stripe.com https://*.supabase.co https://api.postcodes.io https://crcakes-backend-production.up.railway.app https://api.ratings.food.gov.uk; frame-src https://js.stripe.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self';"
+        }
+      ]
+    }
+  ]
+}
