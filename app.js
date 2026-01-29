@@ -886,6 +886,14 @@ checkoutBtn.addEventListener("click", async () => {
     if (!data?.id) {
       throw new Error("Server did not return a Stripe session id");
     }
+    if (data?.orderId && data?.token) {
+      try {
+        sessionStorage.setItem(`order_token_${data.orderId}`, data.token);
+      } catch (e) {
+        // If storage is blocked, polling just won't work — checkout still works.
+        console.warn("Could not store order token:", e);
+      }
+    }
 
     const stripe = Stripe(
       "pk_test_51SRcyYFHzcCcveqyfwRL3zNhOir1wD2caZdv0wSPrV9mUjoGomwVQim8APqxZ9inI0IzOq2lAThawoqkHn4ZreRZ00O9PhEIbe"
@@ -914,6 +922,7 @@ window.addEventListener("DOMContentLoaded", () => {
   renderCart();
   updateCheckoutState();
 });
+
 
 
 
