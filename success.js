@@ -49,9 +49,9 @@ if (urlToken) {
 const token = orderId ? (sessionStorage.getItem(`order_token_${orderId}`) || "") : "";
 
 
-// ✅ API base: use same-origin by default in prod if you proxy /api.
-// For your dev LAN, keep fallback. You can set window.__API_BASE__ if you want.
-const API_BASE = window.__API_BASE__ || "http://192.168.0.99:5000";
+const API_BASE = "";
+fetch(`/api/order/${encodeURIComponent(orderId)}`, ...)
+
 
 let attempts = 0;
 const MAX_ATTEMPTS = 15; // ~30 seconds
@@ -108,5 +108,6 @@ async function pollOrder() {
 }
 
 pollOrder();
+
 
 
