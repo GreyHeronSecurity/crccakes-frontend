@@ -35,11 +35,15 @@ const orderId = params.get("orderId");
 // (If token is present in URL for backwards compatibility, we migrate it once.)
 const urlToken = params.get("token");
 if (urlToken) {
-  sessionStorage.setItem("order_token", urlToken);
-  // Remove token from URL (prevents leaks via copy/paste, logs, history)
-  params.delete("token");
-  const newUrl = `${window.location.pathname}?${params.toString()}`;
-  window.history.replaceState({}, "", newUrl);
+  if (urlToken && orderId) {
+    sessionStorage.setItem(`order_token_${orderId}`, urlToken);
+    
+
+    // Remove token from URL (prevents leaks via copy/paste, logs, history)
+    params.delete("token");
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    window.history.replaceState({}, "", newUrl);
+  }
 }
 
 const token = orderId ? (sessionStorage.getItem(`order_token_${orderId}`) || "") : "";
@@ -104,4 +108,5 @@ async function pollOrder() {
 }
 
 pollOrder();
+
 
