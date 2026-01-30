@@ -22,6 +22,24 @@ function makeConfetti() {
 
 makeConfetti();
 
+// ----- Basket clearing (only after paid) -----
+function clearBasketOnce(orderId) {
+  if (!orderId) return;
+
+  const guardKey = `basket_cleared_${orderId}`;
+  if (sessionStorage.getItem(guardKey)) return;
+
+  try {
+    // Your cart is stored here:
+    localStorage.removeItem("cart_v1");
+  } catch (e) {
+    console.warn("Could not clear basket:", e);
+  }
+
+  // Mark as cleared so refresh doesn't re-run (harmless either way, but tidy)
+  sessionStorage.setItem(guardKey, "1");
+}
+
 // ----- Status icon (spinner -> emoji) -----
 const statusIcon = document.querySelector(".status-icon");
 const emojiEl = document.querySelector(".status-icon .emoji");
@@ -107,6 +125,9 @@ async function pollOrder() {
     if (!r.ok) throw new Error(data?.error || "Failed to fetch order");
 
     if (data.status === "paid") {
+      // ✅ Clear basket only once payment is confirmed
+      clearBasketOnce(orderId);
+
       setStatus("paid");
       titleEl.textContent = "Order Confirmed!";
       msgEl.textContent =
@@ -140,10 +161,4 @@ async function pollOrder() {
 }
 
 pollOrder();
-
-
-
-
-
-
 
