@@ -1,4 +1,10 @@
 {
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://crcakes-backend-production.up.railway.app/$1"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
