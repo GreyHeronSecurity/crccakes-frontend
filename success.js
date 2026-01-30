@@ -36,7 +36,7 @@ function clearBasketOnce(orderId) {
     console.warn("Could not clear basket:", e);
   }
 
-  // Mark as cleared so refresh doesn't re-run (harmless either way, but tidy)
+  // Mark as cleared so refresh doesn't re-run 
   sessionStorage.setItem(guardKey, "1");
 }
 
@@ -77,7 +77,7 @@ const msgEl = document.getElementById("message");
 const params = new URLSearchParams(window.location.search);
 const orderId = params.get("orderId");
 
-// ✅ Prefer token NOT in URL.
+
 // Backend returns token on /create-checkout-session.
 // If token is present in URL for backwards compatibility, migrate it into sessionStorage.
 const urlToken = params.get("token");
@@ -93,8 +93,8 @@ if (urlToken && orderId) {
 // Read token (stored before redirect to Stripe, keyed by orderId)
 const token = orderId ? sessionStorage.getItem(`order_token_${orderId}`) || "" : "";
 
-// ✅ Same-origin API calls via Vercel rewrite: /api/* -> Railway backend
-const API_BASE = ""; // keep empty; use /api paths below
+// Same-origin API calls via Vercel rewrite: /api/* -> Railway backend
+const API_BASE = ""; 
 
 let attempts = 0;
 const MAX_ATTEMPTS = 15; // ~30 seconds
@@ -125,13 +125,13 @@ async function pollOrder() {
     if (!r.ok) throw new Error(data?.error || "Failed to fetch order");
 
     if (data.status === "paid") {
-      // ✅ Clear basket only once payment is confirmed
+      // Clear basket only once payment is confirmed
       clearBasketOnce(orderId);
 
       setStatus("paid");
       titleEl.textContent = "Order Confirmed!";
       msgEl.textContent =
-        "Payment confirmed ✅ Thank you for your purchase. We’ll soon be in touch!";
+        "Payment confirmed! Thank you for your purchase. We’ll soon be in touch!";
       return;
     }
 
@@ -161,4 +161,5 @@ async function pollOrder() {
 }
 
 pollOrder();
+
 
