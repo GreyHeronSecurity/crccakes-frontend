@@ -465,7 +465,7 @@ footer p { padding: 0rem; }
 
 .food-rating {
   display: inline-block;
-  transform: scale(0.85);        
+  transform: scale(0.5);        
   transform-origin: top left;    
 }
 
@@ -886,4 +886,5 @@ body.modal-open { overflow: hidden !important; }
   .car-prev { left: 0px; }
   .car-next { right: 0px; }
 }
+
 
