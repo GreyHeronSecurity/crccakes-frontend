@@ -463,6 +463,13 @@ footer p { padding: 0rem; }
   margin: 0 auto;
 }
 
+.food-rating {
+  display: inline-block;
+  transform: scale(0.85);        
+  transform-origin: top left;    
+}
+
+
 .contact-item { margin: 1rem 0; }
 
 .contact-label {
@@ -807,6 +814,9 @@ body.modal-open { overflow: hidden !important; }
     grid-template-columns: repeat(2, 1fr);
     gap: 0rem;
   }
+  .food-rating {
+    transform: scale(0.7);
+  }
 
   .product-carousel { height: 180px; }
 
@@ -876,3 +886,4 @@ body.modal-open { overflow: hidden !important; }
   .car-prev { left: 0px; }
   .car-next { right: 0px; }
 }
+
