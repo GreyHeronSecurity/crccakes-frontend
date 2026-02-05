@@ -896,7 +896,7 @@ checkoutBtn.addEventListener("click", async () => {
     }
 
     const stripe = Stripe(
-      "pk_test_51Sxa6TF9wfjSiZSCxljSHZQW7XRHw4aLvSHTeLy0nU1sPt6Nbp5zICRQWWx1H2EkzIMycHVbOP5YcBMVaFYkVGKj00qw287rgr"
+      "pk_live_51Sxa6F2UV18JHvWDXggyMzsJ54vmBIBcV9dnLh4WRas9v3sbooXqGQArnu6baBfEFXVr1H3zYwCOpTAZSNO6WSAT00tgNRXXD0"
     );
     const result = await stripe.redirectToCheckout({ sessionId: data.id });
 
@@ -922,6 +922,7 @@ window.addEventListener("DOMContentLoaded", () => {
   renderCart();
   updateCheckoutState();
 });
+
 
 
 
