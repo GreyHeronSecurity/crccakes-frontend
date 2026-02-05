@@ -829,43 +829,43 @@ body.modal-open { overflow: hidden !important; }
     border: none;
   }
 
-  #product-grid > .product:nth-child(5n + 2),
-  #product-grid > .product:nth-child(5n + 3) {
+  #product-grid > .product:nth-child(4n + 2),
+  #product-grid > .product:nth-child(4n + 3) {
     background-color: #756f6a;
     color: #fff;
   }
 
-  #product-grid > .product:nth-child(5n + 2) *,
-  #product-grid > .product:nth-child(5n + 3) * {
+  #product-grid > .product:nth-child(4n + 2) *,
+  #product-grid > .product:nth-child(4n + 3) * {
     color: #fff;
   }
 
   /* Keep carousel arrows black on brown cards */
-  #product-grid > .product:nth-child(5n + 2) .car-arrow,
-  #product-grid > .product:nth-child(5n + 3) .car-arrow {
+  #product-grid > .product:nth-child(4n + 2) .car-arrow,
+  #product-grid > .product:nth-child(4n + 3) .car-arrow {
     color: white;
     background-color: #756f6a;
   }
 
   /* Keep these controls black on the brown cards */
-  #product-grid > .product:nth-child(5n + 2) .dd-flavours,
-  #product-grid > .product:nth-child(5n + 3) .dd-flavours,
-  #product-grid > .product:nth-child(5n + 2) .ta-flavours,
-  #product-grid > .product:nth-child(5n + 3) .ta-flavours,
-  #product-grid > .product:nth-child(5n + 2) .add-btn,
-  #product-grid > .product:nth-child(5n + 3) .add-btn,
-  #product-grid > .product:nth-child(5n + 2) .quantity,
-  #product-grid > .product:nth-child(5n + 3) .quantity,
-  #product-grid > .product:nth-child(5n + 2) .quantity button,
-  #product-grid > .product:nth-child(5n + 3) .quantity button,
-  #product-grid > .product:nth-child(5n + 2) .quantity span,
-  #product-grid > .product:nth-child(5n + 3) .quantity span {
+  #product-grid > .product:nth-child(4n + 2) .dd-flavours,
+  #product-grid > .product:nth-child(4n + 3) .dd-flavours,
+  #product-grid > .product:nth-child(4n + 2) .ta-flavours,
+  #product-grid > .product:nth-child(4n + 3) .ta-flavours,
+  #product-grid > .product:nth-child(4n + 2) .add-btn,
+  #product-grid > .product:nth-child(4n + 3) .add-btn,
+  #product-grid > .product:nth-child(4n + 2) .quantity,
+  #product-grid > .product:nth-child(4n + 3) .quantity,
+  #product-grid > .product:nth-child(4n + 2) .quantity button,
+  #product-grid > .product:nth-child(4n + 3) .quantity button,
+  #product-grid > .product:nth-child(4n + 2) .quantity span,
+  #product-grid > .product:nth-child(4n + 3) .quantity span {
     color: #000;
     border: transparent 0.1rem solid;
   }
 
-  #product-grid > .product:nth-child(5n + 2) .add-btn,
-  #product-grid > .product:nth-child(5n + 3) .add-btn {
+  #product-grid > .product:nth-child(4n + 2) .add-btn,
+  #product-grid > .product:nth-child(4n + 3) .add-btn {
     background-color: #F6F5F1;
   }
 
