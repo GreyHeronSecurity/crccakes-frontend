@@ -117,7 +117,7 @@ const articleContent = {
     `,
   },
   cakes: {
-    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cake.png",
+    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cake22.png",
     title: "C.R. Cakes and Bakes",
     extra: `
       <h1>C.R. Cakes and Bakes</h1>
@@ -972,6 +972,7 @@ window.addEventListener("DOMContentLoaded", () => {
   renderCart();
   updateCheckoutState();
 });
+
 
 
 
