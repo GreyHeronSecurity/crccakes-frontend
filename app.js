@@ -150,6 +150,18 @@ const articleContent = {
       open to requests. Just send me a message before you order so I can confirm availability.
     `,
   },
+  seasonal: {
+    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/tb_jammy.jpg",
+    title: "Seasonal Specials",
+    text: `
+      Our Seasonal Specials are inspired by the time of year, featuring limited-edition bakes 
+      that celebrate seasonal flavours, occasions, and festive favourites. From cosy autumn treats 
+      to fun holiday-themed bakes, these goodies are made in small batches and are only available 
+      for a short time. Each item is baked fresh here in Newcastle with the same care and creativity 
+      you’ll find across our range. Keep an eye out, once they’re gone, they’re gone! If you have 
+      a seasonal idea in mind, feel free to get in touch and I’ll see what I can do.
+    `,
+  },
 };
 
 /* ----------------- BUTTON CLICK + TRANSITION HANDLING ----------------- */
@@ -960,6 +972,7 @@ window.addEventListener("DOMContentLoaded", () => {
   renderCart();
   updateCheckoutState();
 });
+
 
 
 
