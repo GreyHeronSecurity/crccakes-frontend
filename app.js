@@ -94,7 +94,7 @@ function saveCart() {
 /* ----------------- ARTICLE CONTENT FOR EACH CATEGORY ----------------- */
 const articleContent = {
   cookiePies: {
-    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cake.png",
+    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cakeDone.png",
     title: "Cookie Pies",
     text: `
       Cookie pies are one of our most indulgent treats, deep-dish cookies filled with layers 
@@ -106,7 +106,7 @@ const articleContent = {
     `,
   },
   cheesecakes: {
-    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cheese1.png",
+    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cheeseDone.png",
     title: "Cheesecakes",
     text: `
       Our cheesecakes are rich, creamy, and full of flavour, from classic favourites to fun new 
@@ -117,7 +117,7 @@ const articleContent = {
     `,
   },
   cakes: {
-    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cake22.png",
+    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cakeDone.png",
     title: "C.R. Cakes and Bakes",
     extra: `
       <h1>C.R. Cakes and Bakes</h1>
@@ -129,7 +129,7 @@ const articleContent = {
     `,
   },
   sweettreats: {
-    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cake.png",
+    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cakeDone.png",
     title: "Sweet Treats",
     text: `
       Sweet Treats include brownies, blondies, cookies, and all the little delights baked with love 
@@ -140,7 +140,7 @@ const articleContent = {
     `,
   },
   traybakes: {
-    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/jammy.png",
+    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/trayDone.png",
     title: "Traybakes",
     text: `
       Our traybakes are thick, generous slices of deliciousness, from gooey chocolate bakes to fun, 
@@ -972,6 +972,7 @@ window.addEventListener("DOMContentLoaded", () => {
   renderCart();
   updateCheckoutState();
 });
+
 
 
 
