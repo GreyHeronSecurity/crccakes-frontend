@@ -511,7 +511,8 @@ footer p { padding: 0rem; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #c04a7c;
+  border: solid black 1px;
+  background-color: #F6F5F1;
   color: #fff;
   font-size: 25px;
   cursor: pointer;
@@ -886,6 +887,7 @@ body.modal-open { overflow: hidden !important; }
   .car-prev { left: 0px; }
   .car-next { right: 0px; }
 }
+
 
 
 
