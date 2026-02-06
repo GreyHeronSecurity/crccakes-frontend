@@ -183,7 +183,54 @@ function updateArticle(category) {
     article.classList.remove("fade-out");
   }, 400);
 }
+const TOPPING_GROUPS = {
+  default: [
+    { v: "No Topping", t: "Plain", imgIndex: "0" },
+    { v: "Oreo", t: "Oreo", imgIndex: "3" },
+    { v: "Biscoff", t: "Biscoff" },
+    { v: "Salted Caramel", t: "Salted Caramel" },
+  ],
 
+  cookie_pie: [
+    { v: "No Topping", t: "Plain", imgIndex: "0" },
+    { v: "Creme Egg", t: "Creme Egg", imgIndex: "1" },
+    { v: "Malteasers", t: "Malteasers", imgIndex: "2" },
+    { v: "Oreo", t: "Oreo", imgIndex: "3" },
+    { v: "Kinder", t: "Kinder" },
+    { v: "Biscoff", t: "Biscoff" },
+  ],
+
+  prot_toppings: [
+    { v: "No Topping", t: "Plain", imgIndex: "0" },
+    { v: "Strawberry", t: "Strawberry" },
+    { v: "Vaniila", t: "Vanilla" },
+    { v: "Chocolate", t: "Chocolate" },
+    { v: "Bannana", t: "Bannana" },
+    { v: "Coffee", t: "Coffee" },
+  ],
+
+  tray_toppings: [
+    { v: "No Topping", t: "Plain", imgIndex: "0" },
+    { v: "Creme Egg", t: "Creme Egg", imgIndex: "1" },
+    { v: "Malteasers", t: "Malteasers", imgIndex: "2" },
+    { v: "Oreo", t: "Oreo", imgIndex: "3" },
+    { v: "KitKat", t: "KitKat" },
+    { v: "Kinder", t: "Kinder" },
+    { v: "Crunchie", t: "Crunchie" },
+    { v: "Biscoff", t: "Biscoff" },
+    { v: "Mint Chocolate", t: "Mint Chocolate" },
+    { v: "Chocolate Orange", t: "Chocolate Orange" },
+    { v: "White Chocolate and Raspberry", t: "White Chocolate and Raspberry" },
+    { v: "Jammy Dodger", t: "Jammy Dodger" },
+    { v: "Peanut Butter", t: "Peanut Butter" },
+    { v: "Coconut", t: "Coconut" },
+    { v: "Salted Caramel", t: "Salted Caramel" },
+  ],
+
+  none: [
+    { v: "No Topping", t: "No options" },
+  ],
+};
 /* ----------------- LOAD PRODUCTS ----------------- */
 const BUCKET = "product-images";
 
@@ -304,23 +351,9 @@ async function loadProducts(category) {
       const select = document.createElement("select");
       select.className = "dd-flavours";
 
-      const toppingOptions = [
-        { v: "No Topping", t: "Plain", imgIndex: "0" },
-        { v: "Creme Egg", t: "Creme Egg", imgIndex: "1" },
-        { v: "Malteasers", t: "Malteasers", imgIndex: "2" },
-        { v: "Oreo", t: "Oreo", imgIndex: "3" },
-        { v: "KitKat", t: "KitKat" },
-        { v: "Kinder", t: "Kinder" },
-        { v: "Crunchie", t: "Crunchie" },
-        { v: "Biscoff", t: "Biscoff" },
-        { v: "Mint Chocolate", t: "Mint Chocolate" },
-        { v: "Chocolate Orange", t: "Chocolate Orange" },
-        { v: "White Chocolate and Raspberry", t: "White Chocolate and Raspberry" },
-        { v: "Jammy Dodger", t: "Jammy Dodger" },
-        { v: "Peanut Butter", t: "Peanut Butter" },
-        { v: "Coconut", t: "Coconut" },
-        { v: "Salted Caramel", t: "Salted Caramel" },
-      ];
+      
+      const groupKey = String(p.topping_group || "default").toLowerCase().trim();
+      const toppingOptions = TOPPING_GROUPS[groupKey] || TOPPING_GROUPS.default || [];
 
       toppingOptions.forEach((o) => {
         const opt = document.createElement("option");
@@ -927,6 +960,7 @@ window.addEventListener("DOMContentLoaded", () => {
   renderCart();
   updateCheckoutState();
 });
+
 
 
 
