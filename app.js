@@ -918,10 +918,45 @@ window.addEventListener("DOMContentLoaded", () => {
   const defaultBtn = document.querySelector('button[data-category="cakes"]');
   defaultBtn?.click();
 
+    // ----- Request form (mailto) -----
+  const requestForm = document.getElementById("requestForm");
+  const reqThanks = document.getElementById("reqThanks");
+
+  requestForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("reqName")?.value.trim();
+    const contact = document.getElementById("reqContact")?.value.trim();
+    const details = document.getElementById("reqDetails")?.value.trim();
+
+    if (!name || !contact || !details) return;
+
+    // show thank-you message
+    if (reqThanks) reqThanks.style.display = "block";
+
+    // build email (opens user email app)
+    const to = "c.r.cakesandbakes1@gmail.com";
+    const subject = encodeURIComponent(`New Bakery Request — ${name}`);
+    const body = encodeURIComponent(
+      `New request from the website:\n\n` +
+      `Name: ${name}\n` +
+      `Contact (phone/email): ${contact}\n\n` +
+      `Request:\n${details}\n\n` +
+      `— Sent from C.R. Cakes & Bakes`
+    );
+
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+
+    // reset form after triggering
+    requestForm.reset();
+  });
+
+
   initDeliveryControls();
   renderCart();
   updateCheckoutState();
 });
+
 
 
 
