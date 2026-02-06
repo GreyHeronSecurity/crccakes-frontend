@@ -151,7 +151,7 @@ const articleContent = {
     `,
   },
   seasonal: {
-    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/tb_jammy.jpg",
+    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/f3481ccd-9763-437c-9bf5-e941829d285e/0.png",
     title: "Seasonal Specials",
     text: `
       Our Seasonal Specials are inspired by the time of year, featuring limited-edition bakes 
@@ -972,6 +972,7 @@ window.addEventListener("DOMContentLoaded", () => {
   renderCart();
   updateCheckoutState();
 });
+
 
 
 
