@@ -518,7 +518,6 @@ footer p { padding: 0rem; }
   cursor: pointer;
   z-index: 2000;
   box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-  border: none;
 }
 
 #cart-count {
@@ -887,6 +886,7 @@ body.modal-open { overflow: hidden !important; }
   .car-prev { left: 0px; }
   .car-next { right: 0px; }
 }
+
 
 
 
