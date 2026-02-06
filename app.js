@@ -106,7 +106,7 @@ const articleContent = {
     `,
   },
   cheesecakes: {
-    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cake.png",
+    img: "https://gntqahajeerodlronvpp.supabase.co/storage/v1/object/public/product-images/traybakes/cake2.png",
     title: "Cheesecakes",
     text: `
       Our cheesecakes are rich, creamy, and full of flavour, from classic favourites to fun new 
@@ -972,6 +972,7 @@ window.addEventListener("DOMContentLoaded", () => {
   renderCart();
   updateCheckoutState();
 });
+
 
 
 
