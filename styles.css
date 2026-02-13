@@ -165,9 +165,8 @@ nav button {
 nav button:hover,
 nav button.active {
   color: #d55d92;
-  border-bottom: 0.1rem solid black;
-  border-bottom-right-radius: 1rem;
-  border-bottom-left-radius: 1rem;
+  
+  border-bottom: 2px solid black;
 }
 
 article {
@@ -886,6 +885,7 @@ body.modal-open { overflow: hidden !important; }
   .car-prev { left: 0px; }
   .car-next { right: 0px; }
 }
+
 
 
 
