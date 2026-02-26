@@ -229,6 +229,16 @@ const TOPPING_GROUPS = {
     { v: "Caramel", t: "Caramel" },
     { v: "Cream", t: "Cream Cheese Frosting" },
   ],
+  
+  cake: [
+    { v: "Cake Type", t: "Choice of Buttercream", imgIndex: "0" },
+    { v: "Strawberry", t: "Strawberry" },
+    { v: "Vaniila", t: "Vanilla" },
+    { v: "Chocolate", t: "Chocolate" },
+    { v: "Carrot", t: "Carrot Cake" },
+    { v: "Victoria", t: "Victoria Sponge" },
+    { v: "Caramel", t: "Caramel" },
+  ],
 
   tray_toppings: [
     { v: "No Topping", t: "Plain", imgIndex: "0" },
