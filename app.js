@@ -231,7 +231,7 @@ const TOPPING_GROUPS = {
   ],
   
   cake: [
-    { v: "Cake Type", t: "Choice of Buttercream", imgIndex: "0" },
+    { v: "Type", t: "Cake Options", imgIndex: "0" },
     { v: "Strawberry", t: "Strawberry" },
     { v: "Vaniila", t: "Vanilla" },
     { v: "Chocolate", t: "Chocolate" },
