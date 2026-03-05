@@ -257,6 +257,15 @@ const TOPPING_GROUPS = {
     { v: "Coconut", t: "Coconut" },
     { v: "Salted Caramel", t: "Salted Caramel" },
   ],
+  
+  buttercream: [
+    { v: "", t: "Select Buttercream" },
+    { v: "Vanilla", t: "Vanilla" },
+    { v: "Chocolate", t: "Chocolate" },
+    { v: "Strawberry", t: "Strawberry" },
+    { v: "Caramel", t: "Caramel" },
+    { v: "Cream Cheese", t: "Cream Cheese" },
+  ],
 
   none: [
     { v: "No Topping", t: "No options" },
@@ -374,13 +383,69 @@ async function loadProducts(category) {
       // flavours block
       const flavours = document.createElement("div");
       flavours.className = "flavours";
-
-      const lab = document.createElement("label");
-      lab.textContent = "Topping:";
-      flavours.appendChild(lab);
-
-      const select = document.createElement("select");
-      select.className = "dd-flavours";
+      
+      const groupKey = String(p.topping_group || "default").toLowerCase().trim();
+      
+      if (groupKey === "cake") {
+        // ----- CAKE TYPE DROPDOWN -----
+        const cakeLabel = document.createElement("label");
+        cakeLabel.textContent = "Cake Type:";
+        flavours.appendChild(cakeLabel);
+      
+        const cakeSelect = document.createElement("select");
+        cakeSelect.className = "dd-cake";
+      
+        (TOPPING_GROUPS.cake || []).forEach((o) => {
+          const opt = document.createElement("option");
+          opt.value = o.v;
+          opt.textContent = o.t;
+          cakeSelect.appendChild(opt);
+        });
+      
+        flavours.appendChild(cakeSelect);
+      
+        // ----- BUTTERCREAM DROPDOWN -----
+        const butterLabel = document.createElement("label");
+        butterLabel.textContent = "Buttercream:";
+        flavours.appendChild(butterLabel);
+      
+        const butterSelect = document.createElement("select");
+        butterSelect.className = "dd-buttercream";
+      
+        (TOPPING_GROUPS.buttercream || []).forEach((o) => {
+          const opt = document.createElement("option");
+          opt.value = o.v;
+          opt.textContent = o.t;
+          butterSelect.appendChild(opt);
+        });
+      
+        flavours.appendChild(butterSelect);
+      
+        // Save references for add-to-cart
+        flavours.dataset.isCake = "true";
+      
+      } else {
+        // ----- NORMAL PRODUCTS -----
+        const lab = document.createElement("label");
+        lab.textContent = "Topping:";
+        flavours.appendChild(lab);
+      
+        const select = document.createElement("select");
+        select.className = "dd-flavours";
+      
+        const toppingOptions =
+          TOPPING_GROUPS[groupKey] || TOPPING_GROUPS.default || [];
+      
+        toppingOptions.forEach((o) => {
+          const opt = document.createElement("option");
+          opt.value = o.v;
+          opt.textContent = o.t;
+          if (o.imgIndex != null) opt.dataset.imgIndex = o.imgIndex;
+          select.appendChild(opt);
+        });
+      
+        flavours.appendChild(select);
+      }
 
       
       const groupKey = String(p.topping_group || "default").toLowerCase().trim();
@@ -451,7 +516,19 @@ async function loadProducts(category) {
 
       add.addEventListener("click", () => {
         const qty = parseInt(qtySpan.textContent, 10);
-        const flavour = select.value;
+        let flavour = "";
+        let buttercream = "";
+        
+        if (p.name === "Naked Cake" || p.name === "Frosted Cake") {
+          const cakeSelect = flavours.querySelector(".dd-cake");
+          const butterSelect = flavours.querySelector(".dd-buttercream");
+        
+          flavour = cakeSelect?.value || "";
+          buttercream = butterSelect?.value || "";
+        } else {
+          const select = flavours.querySelector(".dd-flavours");
+          flavour = select?.value || "";
+        }
         const notes = ta.value.trim();
 
         const imgEl = carousel.querySelector(".product-img");
@@ -460,9 +537,10 @@ async function loadProducts(category) {
         addToCart({
           product_id: p.id,
           name: p.name,
-          price: p.price, // display only (server must price)
+          price: p.price,
           quantity: qty,
           flavour,
+          buttercream,   // 👈 added
           notes,
           image: selectedImage,
         });
