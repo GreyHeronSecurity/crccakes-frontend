@@ -386,7 +386,11 @@ async function loadProducts(category) {
       
       const groupKey = String(p.topping_group || "default").toLowerCase().trim();
       
-      if (groupKey === "cake") {
+      const isCustomCake =
+        p.name?.startsWith("Naked Cake") ||
+        p.name?.startsWith("Frosted Cake");
+      
+      if (isCustomCake) {
         // ----- CAKE TYPE DROPDOWN -----
         const cakeLabel = document.createElement("label");
         cakeLabel.textContent = "Cake Type:";
@@ -507,7 +511,7 @@ async function loadProducts(category) {
         let flavour = "";
         let buttercream = "";
         
-        if (p.name === "Naked Cake" || p.name === "Frosted Cake") {
+        if (isCustomCake)
           const cakeSelect = flavours.querySelector(".dd-cake");
           const butterSelect = flavours.querySelector(".dd-buttercream");
         
@@ -601,6 +605,7 @@ function addToCart(item) {
     (i) =>
       i.name === item.name &&
       i.flavour === item.flavour &&
+      i.buttercream === item.buttercream &&
       i.notes === item.notes &&
       i.image === item.image
   );
