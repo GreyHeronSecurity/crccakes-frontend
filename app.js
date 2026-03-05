@@ -447,18 +447,6 @@ async function loadProducts(category) {
         flavours.appendChild(select);
       }
 
-      
-      const groupKey = String(p.topping_group || "default").toLowerCase().trim();
-      const toppingOptions = TOPPING_GROUPS[groupKey] || TOPPING_GROUPS.default || [];
-
-      toppingOptions.forEach((o) => {
-        const opt = document.createElement("option");
-        opt.value = o.v;
-        opt.textContent = o.t;
-        if (o.imgIndex != null) opt.dataset.imgIndex = o.imgIndex;
-        select.appendChild(opt);
-      });
-
       flavours.appendChild(select);
 
       const ta = document.createElement("textarea");
