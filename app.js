@@ -510,29 +510,30 @@ async function loadProducts(category) {
         const qty = parseInt(qtySpan.textContent, 10);
         let flavour = "";
         let buttercream = "";
-        
-        if (isCustomCake)
+      
+        if (isCustomCake) {
           const cakeSelect = flavours.querySelector(".dd-cake");
           const butterSelect = flavours.querySelector(".dd-buttercream");
-        
+      
           flavour = cakeSelect?.value || "";
           buttercream = butterSelect?.value || "";
         } else {
           const select = flavours.querySelector(".dd-flavours");
           flavour = select?.value || "";
         }
+      
         const notes = ta.value.trim();
-
+      
         const imgEl = carousel.querySelector(".product-img");
         const selectedImage = imgEl?.src || "";
-
+      
         addToCart({
           product_id: p.id,
           name: p.name,
           price: p.price,
           quantity: qty,
           flavour,
-          buttercream,   // 👈 added
+          buttercream,
           notes,
           image: selectedImage,
         });
