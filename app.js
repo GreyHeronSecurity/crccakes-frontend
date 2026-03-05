@@ -451,7 +451,7 @@ async function loadProducts(category) {
         flavours.appendChild(select);
       }
 
-      flavours.appendChild(select);
+      
 
       const ta = document.createElement("textarea");
       ta.className = "ta-flavours";
