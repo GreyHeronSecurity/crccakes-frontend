@@ -1,8 +1,8 @@
 * { box-sizing: border-box; }
-html, body { overflow-x: hidden; overflow-y: auto; }
-html {
-  -webkit-overflow-scrolling: touch; 
-  transform: translateZ(0); } 
+html { overflow-x: hidden; -webkit-overflow-scrolling: touch; 
+  transform: translateZ(0); }
+body { overflow-x: hidden; overflow-y: auto; min-height: 100vh; }
+
 img { max-width: 100%; height: auto; display: block; }
 
 body {
@@ -548,8 +548,7 @@ footer p { padding: 0rem; }
 }
 
 body.modal-open {
-  position: fixed;
-  width: 100%;
+  overflow: hidden;
 }
 
 #cart-modal {
