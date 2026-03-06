@@ -1,7 +1,15 @@
 * { box-sizing: border-box; }
-html { overflow-x: hidden; -webkit-overflow-scrolling: touch; 
-  transform: translateZ(0); }
-body { overflow-x: hidden; overflow-y: auto; min-height: 100vh; }
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
+  -webkit-overflow-scrolling: touch;
+}
 
 img { max-width: 100%; height: auto; display: block; }
 
