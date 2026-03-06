@@ -310,7 +310,9 @@ async function loadProducts(category) {
 
     const toPublicUrl = (path) =>
       supabaseClient.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
-
+    
+    const frag = document.createDocumentFragment();
+    
     products.forEach((p) => {
       const product = document.createElement("div");
       product.className = "product";
@@ -539,8 +541,10 @@ async function loadProducts(category) {
         });
       });
 
-      grid.appendChild(product);
+      frag.appendChild(product);
     });
+    
+    grid.appendChild(frag);
   } catch (err) {
     console.error("Unexpected error in loadProducts:", err);
     grid.innerHTML = "<p>Something went wrong loading products.</p>";
