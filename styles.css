@@ -543,7 +543,10 @@ footer p { padding: 0rem; }
   color: #756f6a; 
 }
 
-body.modal-open { overflow: hidden !important; }
+body.modal-open {
+  position: fixed;
+  width: 100%;
+}
 
 #cart-modal {
   position: fixed;
