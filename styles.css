@@ -1,6 +1,8 @@
 * { box-sizing: border-box; }
-html, body { overflow-x: hidden; overflow-y: auto; html {
-  -webkit-overflow-scrolling: touch; } 
+html, body { overflow-x: hidden; overflow-y: auto; }
+html {
+  -webkit-overflow-scrolling: touch; 
+  transform: translateZ(0); } 
 img { max-width: 100%; height: auto; display: block; }
 
 body {
